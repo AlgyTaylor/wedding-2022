@@ -2,33 +2,46 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import  { Jumbotron, Container } from "react-bootstrap"
+import { Jumbotron, Container } from "react-bootstrap"
+import { StaticImage } from "gatsby-plugin-image"
 
-const WeddingJumbotron = styled(Jumbotron)`
-  background-color: darkgreen;
+const WeddingWrapper = styled.div`
+  position: relative;
 `;
 
-const Title = styled(Link)`
+const HeaderText = styled.h1`
+  position: absolute;
+  top: calc(50% - 3rem);
+  left: 3rem;
   color: white;
-  :hover {
-    color: lightyellow;
-    text-decoration: none;
-  }
+  text-shadow: -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
 `;
-
-const Description = styled.p`
+const HeaderDescription = styled.p`
+  position: absolute;
+  top: calc(50%);
+  left: 3rem;
   color: white;
+  text-shadow: -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
 `;
 
 const Header = ({ siteTitle, siteDescription }) => (
-  <WeddingJumbotron fluid> 
-    <Container>
-      <h1>
-        <Title to="/">{siteTitle}</Title>
-      </h1>
-      <Description>{siteDescription}</Description>
-    </Container>
-  </WeddingJumbotron>
+  <WeddingWrapper>
+    <StaticImage
+      src="../images/flower.jpg"
+      quality={95}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      alt="Rose on paper"
+      style={{ marginBottom: `1.45rem` }}
+    />
+    <HeaderText>{siteTitle}</HeaderText>
+    <HeaderDescription>{siteDescription}</HeaderDescription>
+  </WeddingWrapper>
 )
 
 Header.propTypes = {
