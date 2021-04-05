@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Sadie & Algy's Wedding`,
-    description: `A website providing information about Algy's and Sadie's wedding.`,
-    author: `@gatsbyjs`,
+    description: `Sadie Rowlands & Algy Taylor are getting married in Wrexham on 22nd October 2022.`,
+    author: `Sadie Rowlands & Algy Taylor`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
