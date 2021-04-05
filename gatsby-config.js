@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Sadie & Algy's Wedding`,
+    shortTitle: `Our Wedding`,
     description: `Sadie Rowlands & Algy Taylor are getting married in Wrexham on 22nd October 2022.`,
     author: `Sadie Rowlands & Algy Taylor`,
   },
@@ -13,6 +14,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     `gatsby-transformer-sharp`,
