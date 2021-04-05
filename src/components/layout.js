@@ -18,6 +18,8 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
+          author
         }
       }
     }
@@ -25,7 +27,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        siteDescription={data.site.siteMetadata?.description || `Description`}
+      />
       <div
         style={{
           margin: `0 auto`,
@@ -39,7 +44,7 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Sadie Rowlands &amp; Algy Taylor
+          © {new Date().getFullYear()}, {data.site.siteMetadata?.author ?? `Pusscat Industries`}
         </footer>
       </div>
     </>

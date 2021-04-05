@@ -2,44 +2,35 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import  { Jumbotron, Container } from "react-bootstrap"
 
-const Wrapper = styled.header`
-  background: darkgreen;
-  margin-bottom: 1.45rem;
-`;
-const InnerWrapper = styled.div`
-  margin: 0 auto;
-  max-width: 960;
-  padding: 1.45rem 1.0875rem;
-`;
-const Text = styled.h1`
-  margin: 0;
+const Title = styled(Link)`
+  color: green;
+  :hover {
+    color: darkgreen;
+    text-decoration: none;
+  }
 `;
 
-const Header = ({ siteTitle }) => (
-  <Wrapper>
-    <InnerWrapper>
-      <Text>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </Text>
-    </InnerWrapper>
-  </Wrapper>
+const Header = ({ siteTitle, siteDescription }) => (
+  <Jumbotron fluid> 
+    <Container>
+      <h1>
+        <Title to="/">{siteTitle}</Title>
+      </h1>
+      <p>{siteDescription}</p>
+    </Container>
+  </Jumbotron>
 )
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  siteDescription: PropTypes.string,
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  siteDescription: '',
 }
 
 export default Header
